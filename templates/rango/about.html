@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load staticfiles %} <
+<html>
+	<head>
+		<title>About</title>
+	</head>
+	<body>
+		<h1>Rango says...</h1>
+		<div>
+			Here's the time i wore my Comedian cosplay from Watchmen! Ain't it cool? <br />
+			This tutorial was put together by Dominic Manini <br />
+			<a href="/rango/">Home</a><br /> 
+		</div>
+		<div>
+			<img src="{% static "images/rangoHappy.jpg" %}"alt="Picture of the Comedian" />
+			<img src="{{ MEDIA_URL}}cat.jpg" />
+		</div>
+	</body>
+</html>
