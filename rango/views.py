@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rango.models import Category
+from rango.models import Page
 
 from django.http import HttpResponse
 def index(request):
