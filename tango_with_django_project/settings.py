@@ -29,6 +29,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1"]
 
+LOGIN_URL = '/rango/login/'
+
 
 # Application definition
 
@@ -94,6 +96,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "OPTIONS":{ "min_length":6 }
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
@@ -104,7 +107,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Static
-STATICFILES_DIRS = [STATIC_DIR, ]
+STATICFILES_DIRS = [STATIC_DIR, ]
+
 
 #Media
 MEDIA_ROOT = MEDIA_DIR
