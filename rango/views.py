@@ -5,7 +5,8 @@ from rango.models import Page
 from django.http import HttpResponse
 def index(request):
     category_list = Category.objects.order_by('-likes')[:5]
-    context_dict = {'categories': category_list}
+    pages_list = Page.objects.order_by("-views")[:5]
+    context_dict = {'categories': category_list,"pages":pages_list}
     return render(request, "rango/index.html", context = context_dict)
     return HttpResponse("Rango says hey there partner! <br /> <a href = '/rango/about'>About</a>")
 
@@ -14,7 +15,7 @@ def about(request):
     return render(request, "rango/about.html", context = context_dict)
     return HttpResponse("Rango says here is the about page. <br /> <a href = '/rango/'>Index</a>")
 
-def show_category(request,category_name_url):
+def show_category(request,category_name_slug):
     context_dict = {}
     try:
         # Can we find a category name slug with the given name?
@@ -32,7 +33,8 @@ def show_category(request,category_name_url):
         context_dict['category'] = category
     except Category.DoesNotExist:
         # We get here if we didn't find the specified category.
-        # Don't do anything -
+        # Don't do anything -
+
         # the template will display the "no category" message for us.
         context_dict['category'] = None
         context_dict['pages'] = None
